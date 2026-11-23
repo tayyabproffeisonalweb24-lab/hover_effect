@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Hover Effects UI</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #080c16;
+  --card: #111827;
+  --gold: #e7bd68;
+  --text: #f5f6fa;
+  --muted: #9ba6b9;
+  --border: rgba(255,255,255,.1);
+}
+
+body {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background:
+    radial-gradient(ellipse at top left, #24203c 0%, transparent 40%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-bottom: 18px;
+  color: var(--gold);
+  background: #e7bd6810;
+  border: 1px solid #e7bd6845;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.header h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.header h1 span {
+  color: var(--gold);
+}
+
+.header p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 24px;
+  background: linear-gradient(145deg, #151e2d, #0d1320);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color .3s;
+}
+
+.panel:hover {
+  border-color: #e7bd6845;
+}
+
+.panel h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.panel p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 23px;
+}
+
+.demo-area {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 14px;
+  background: #080d17;
+  border: 1px solid #ffffff08;
+  overflow: hidden;
+}
+
+.demo-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 19px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* ===== 1. GOLD LUXURY HOVER ===== */
+.gold-button {
+  color: #18130a;
+  background: linear-gradient(135deg, #f5dc9b, #c99a40);
+  box-shadow: 0 5px 20px #e7bd6818;
+}
+
+.gold-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #e7bd6850;
+}
+
+/* ===== 2. NEON GLOW ===== */
+.neon-button {
+  color: #70fce1;
+  background: #071e20;
+  border-color: #24cdb0;
+}
+
+.neon-button:hover {
+  color: #061512;
+  background: #70fce1;
+  box-shadow: 0 0 12px #70fce1, 0 0 35px #70fce166;
+  transform: scale(1.05);
+}
+
+/* ===== 3. GRADIENT SLIDE ===== */
+.gradient-button {
+  color: white;
+  background: linear-gradient(110deg, #6c45d9, #c13cbb, #e95c91);
+  background-size: 200% 200%;
+}
+
+.gradient-button:hover {
+  background-position: 100% 50%;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #9a45c84a;
+}
+
+/* ===== 4. BORDER ANIMATION ===== */
+.border-button {
+  color: #fff;
+  background: transparent;
+  border-color: #49566e;
+}
+
+.border-button:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  box-shadow: inset 0 0 0 1px var(--gold),
+              0 0 22px #e7bd6820;
+}
+
+/* ===== 5. ICON HOVER ===== */
+.icon-button {
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  color: var(--gold);
+  background: #211d16;
+  border: 1px solid #5a492d;
+  border-radius: 17px;
+  font-size: 21px;
+}
+
+.icon-button:hover {
+  color: #161108;
+  background: var(--gold);
+  transform: rotate(-8deg) scale(1.12);
+  border-radius: 50%;
+  box-shadow: 0 0 25px #e7bd6840;
+}
+
+/* ===== 6. CARD LIFT ===== */
+.lift-card {
+  width: 100%;
+  padding: 18px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #1c2b43, #101827);
+  border: 1px solid #34445c;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.lift-card:hover {
+  transform: translateY(-9px);
+  border-color: #e7bd68;
+  box-shadow: 0 15px 30px #0006;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  background: #e7bd6818;
+  border-radius: 11px;
+  margin-bottom: 13px;
+}
+
+.lift-card h3 {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.lift-card p {
+  font-size: 11px;
+  margin: 0;
+}
+
+/* ===== 7. IMAGE ZOOM ===== */
+.image-card {
+  width: 100%;
+  height: 145px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #202b3c;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.16);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  padding: 14px;
+  background: linear-gradient(transparent 30%, #080c16e8);
+  opacity: .8;
+  transition: opacity .3s;
+}
+
+.image-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== 8. UNDERLINE SLIDE ===== */
+.link-hover {
+  position: relative;
+  padding: 8px 0;
+  color: #e8ecf5;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width .3s ease;
+}
+
+.link-hover:hover {
+  color: var(--gold);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* ===== 9. 3D TILT CARD ===== */
+.tilt-card {
+  width: 100%;
+  min-height: 135px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #30244c, #131827 75%);
+  border: 1px solid #66518b;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: transform .15s ease, box-shadow .3s;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 15px 35px #0006;
+}
+
+.tilt-card i {
+  font-size: 25px;
+  color: #c3a5ff;
+}
+
+.tilt-card h3 {
+  font-size: 15px;
+  margin-top: 18px;
+}
+
+/* ===== 10. PULSE ===== */
+.pulse-button {
+  color: white;
+  background: #287bdb;
+  box-shadow: 0 0 0 0 #287bdb80;
+}
+
+.pulse-button:hover {
+  animation: pulse 1.2s infinite;
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #287bdb80; }
+  70% { box-shadow: 0 0 0 12px #287bdb00; }
+  100% { box-shadow: 0 0 0 0 #287bdb00; }
+}
+
+/* ===== 11. GLASS EFFECT ===== */
+.glass-card {
+  width: 100%;
+  padding: 22px 12px;
+  text-align: center;
+  border: 1px solid #ffffff26;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff16, #ffffff04);
+  backdrop-filter: blur(10px);
+  transition: background .3s, transform .3s, border-color .3s;
+}
+
+.glass-card i {
+  color: #91b8ff;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.glass-card h3 {
+  font-size: 13px;
+}
+
+.glass-card:hover {
+  background: linear-gradient(135deg, #517fd044, #a38bff1c);
+  border-color: #91b8ff80;
+  transform: translateY(-5px);
+}
+
+/* ===== 12. SHINE EFFECT ===== */
+.shine-button {
+  color: #17130a;
+  background: linear-gradient(135deg, #f5dc9b, #c99a40);
+  overflow: hidden;
+}
+
+.shine-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 55%;
+  height: 200%;
+  background: #ffffff80;
+  transform: rotate(25deg);
+  transition: left .55s ease;
+}
+
+.shine-button:hover::before {
+  left: 150%;
+}
+
+.shine-button:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #69758a;
+  font-size: 12px;
+}
+
+/* Keyboard accessibility */
+.demo-button:focus-visible,
+.link-hover:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  body { padding: 26px 13px; }
+  .grid { grid-template-columns: 1fr; }
+  .panel { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+  <header class="header">
+    <div class="badge">
+      <i class="fa-solid fa-gem"></i> PREMIUM INTERACTION LIBRARY
+    </div>
+    <h1>Luxury <span>Hover Effects</span></h1>
+    <p>12 modern hover styles for premium websites, dashboards and education platforms.<br>
+       Hover over each component to preview the animation.</p>
+  </header>
+
+  <section class="grid">
+
+    <!-- 1: Gold luxury -->
+    <article class="panel">
+      <h2>01. Gold Luxury</h2>
+      <p>Premium gold glow and lift animation.</p>
+      <div class="demo-area">
+        <button class="demo-button gold-button">
+          <i class="fa-solid fa-crown"></i> Premium Access
+        </button>
+      </div>
+    </article>
+
+    <!-- 2: Neon glow -->
+    <article class="panel">
+      <h2>02. Neon Glow</h2>
+      <p>Bright neon shadow with a modern scale effect.</p>
+      <div class="demo-area">
+        <button class="demo-button neon-button">
+          <i class="fa-solid fa-bolt"></i> Activate
+        </button>
+      </div>
+    </article>
+
+    <!-- 3: Gradient -->
+    <article class="panel">
+      <h2>03. Gradient Shift</h2>
+      <p>Colorful gradient with smooth movement.</p>
+      <div class="demo-area">
+        <button class="demo-button gradient-button">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Explore Now
+        </button>
+      </div>
+    </article>
+
+    <!-- 4: Border -->
+    <article class="panel">
+      <h2>04. Border Glow</h2>
+      <p>Elegant border highlight on hover.</p>
+      <div class="demo-area">
+        <button class="demo-button border-button">
+          <i class="fa-regular fa-gem"></i> Discover
+        </button>
+      </div>
+    </article>
+
+    <!-- 5: Icon -->
+    <article class="panel">
+      <h2>05. Icon Animation</h2>
+      <p>Icon rotates and transforms into a circle.</p>
+      <div class="demo-area">
+        <button class="demo-button icon-button" aria-label="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </article>
+
+    <!-- 6: Card lift -->
+    <article class="panel">
+      <h2>06. Floating Card</h2>
+      <p>Card rises with a premium shadow.</p>
+      <div class="demo-area">
+        <div class="lift-card">
+          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Learning Dashboard</h3>
+          <p>Explore your next skill.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7: Image zoom -->
+    <article class="panel">
+      <h2>07. Image Zoom</h2>
+      <p>Image zooms smoothly with a dark overlay.</p>
+      <div class="demo-area">
+        <div class="image-card">
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80"
+            alt="Laptop and web development workspace"
+            loading="lazy">
+          <div class="image-overlay">
+            <span>Creative Workspace</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8: Underline -->
+    <article class="panel">
+      <h2>08. Link Underline</h2>
+      <p>Animated underline expands from left to right.</p>
+      <div class="demo-area">
+        <a class="link-hover" href="#hover-details">
+          Explore Features <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- 9: 3D tilt -->
+    <article class="panel">
+      <h2>09. 3D Tilt</h2>
+      <p>Card responds to your mouse movement.</p>
+      <div class="demo-area">
+        <div class="tilt-card" data-tilt>
+          <i class="fa-solid fa-cube"></i>
+          <h3>3D Interactive Card</h3>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10: Pulse -->
+    <article class="panel">
+      <h2>10. Pulse Effect</h2>
+      <p>Animated blue ring draws attention.</p>
+      <div class="demo-area">
+        <button class="demo-button pulse-button">
+          <i class="fa-solid fa-rocket"></i> Get Started
+        </button>
+      </div>
+    </article>
+
+    <!-- 11: Glass -->
+    <article class="panel">
+      <h2>11. Glassmorphism</h2>
+      <p>Frosted glass effect with a blue glow.</p>
+      <div class="demo-area">
+        <div class="glass-card">
+          <i class="fa-solid fa-layer-group"></i>
+          <h3>Glass UI Card</h3>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12: Shine -->
+    <article class="panel">
+      <h2>12. Shine Sweep</h2>
+      <p>A light streak moves across the button.</p>
+      <div class="demo-area">
+        <button class="demo-button shine-button">
+          <i class="fa-solid fa-star"></i> Premium
+        </button>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="footer" id="hover-details">
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+    Designed for modern websites · Responsive · Accessible
+  </footer>
+
+</main>
+
+<script>
+/* ===== INTERACTIVE 3D TILT ===== */
+const tiltCards = document.querySelectorAll("[data-tilt]");
+
+tiltCards.forEach(card => {
+  card.addEventListener("pointermove", event => {
+    /* Disable tilt for touch and other non-mouse pointers. */
+    if (event.pointerType !== "mouse") return;
+
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+
+    const rotateY = (x - 0.5) * 18;
+    const rotateX = (0.5 - y) * 18;
+
+    card.style.transform =
+      `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.style.transform =
+      "perspective(700px) rotateX(0deg) rotateY(0deg) scale(1)";
+  });
+});
+</script>
+
+</body>
+</html>
